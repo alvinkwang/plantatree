@@ -33,7 +33,7 @@
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png">
   </head>
 
-  <body>
+  <body ng-app>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -65,10 +65,11 @@
   			<button class="btn btn-primary">Connect with Facebook</button>
 		</div>
 	</div>
-    <div class="container">
+    <div class="container" ng-controller="planter">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
         <p><a href="#" class="btn btn-success btn-large" onclick="plant()">Plant</a></p>
+        {{count}} trees planted
     	<div id="trees">
       		<img id="tree-template" src="https://dl.dropbox.com/u/16794299/tree.png"/>
     	</div>
@@ -79,15 +80,21 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="./bootstrap/jquery.js"></script>
     <script src="./bootstrap/bootstrap.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
     <script type="text/javascript">
-      function plant(){
-        x = Math.floor(Math.random()*500) + "px";
-        style = "position:fixed; top:100px; left:" + x;
-        $('#tree-template').clone()
-          .removeAttr("id")
-          .attr("style",style)
-          .appendTo('#trees');
-      }
+    	function planter($scope){
+    		$scope.count = 0;
+    		$scope.plant = function (){
+	        	x = Math.floor(Math.random()*500) + "px";
+		        style = "position:fixed; top:100px; left:" + x;
+		        $('#tree-template').clone()
+		          .removeAttr("id")
+		          .attr("style",style)
+		          .appendTo('#trees');
+		          $sceop.countt++;
+	      }
+    	}
+      
     </script>
 
 
