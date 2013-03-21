@@ -65,7 +65,7 @@
   			<button class="btn btn-primary">Connect with Facebook</button>
 		</div>
 	</div>
-    <div class="container" ng-controller="planter">
+    <div class="container" ng-app ng-controller="planter">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
         <p><a href="#" class="btn btn-success btn-large" onclick="plant()">Plant</a></p>
@@ -83,8 +83,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
     <script type="text/javascript">
     	function planter($scope){
-    		$scope.count = 0;
-    		$scope.plant = function (){
+	    	$scope.count = 0;
+	    	$scope.plant = function (){
 	        	x = Math.floor(Math.random()*500) + "px";
 		        style = "position:fixed; top:100px; left:" + x;
 		        $('#tree-template').clone()
