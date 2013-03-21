@@ -102,8 +102,13 @@
 	    	$scope.plant = function (){
 	        	x = Math.floor(Math.random()*100) + "%";
 		        style = "position:fixed; top:100px; left:" + x;
+		        src = "https://dl.dropbox.com/u/16794299/tree.png";
+		        if(Math.random()>0.5){  //change tree
+		          src = "https://dl.dropbox.com/u/16794299/tree2.png";
+		        }
 		        $('#tree-template').clone()
 		          .removeAttr("id")
+		          .attr("src",src)
 		          .attr("style",style)
 		          .appendTo('#trees');
 		          $scope.count++;
