@@ -26,7 +26,15 @@
     });
 
     // Additional init code here
-
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        // connected
+          } else if (response.status === 'not_authorized') {
+        // not_authorized
+      } else {
+        // not_logged_in
+      }
+     });
   };
 
   // Load the SDK Asynchronously
