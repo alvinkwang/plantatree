@@ -68,7 +68,7 @@
     <div class="container" ng-app ng-controller="planter">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
-        <p><a href="#" class="btn btn-success btn-large" ng-click="plant()">Plant </a>{{count}} trees planted</p>
+        <p><a href="#" class="btn btn-success btn-large" ng-click="plant()">Plant </a> {{count}} trees planted</p>
     	<div id="trees">
       		<img id="tree-template" src="https://dl.dropbox.com/u/16794299/tree.png"/>
     	</div>
@@ -90,7 +90,7 @@
 		          .removeAttr("id")
 		          .attr("style",style)
 		          .appendTo('#trees');
-		          $scope.countt++;
+		          $scope.count++;
 	      }
     	}
       
