@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Plant a Tree</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      function plant(){
+        x = Math.floor(Math.random()*500) + "px";
+        style = "position:fixed; top:50px; left:" + x;
+        //scale = Math.random()*3;
+        //height = 264 * scale;
+        //width = 191 * scale;
+        //style = "position:fixed; top:50px; left:" + x  + ";height:" + height + "px;width:" + width + "px;";
+        $('#tree-template').clone()
+          .removeAttr("id")
+          .attr("style",style)
+          .appendTo('#trees');
+      }
+      
+    </script>
+    <style>
+      #tree-template{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="button" value="Plant a Tree" onclick="plant()"/>
+    <div id="trees">
+      <img id="tree-template" src="https://dl.dropbox.com/u/16794299/tree.png"/>
+    </div>
+  </body>
+  
+</html>
