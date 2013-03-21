@@ -56,7 +56,13 @@
           <li><a href="https://github.com/alvinkwang/plantatree">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
-      <div id="janrainEngageEmbed"></div>
+      <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="index.html">Overview</a></li>
+              <li ng-hide="User.login"><a class="janrainEngage" href="#">Sign-In</a></li>
+              <li ng-show="User.login"><a href="/logout">Logout {{User.name}}</a></li>
+            </ul>
+          </div>
       <section>
         <h3>Welcome to GitHub Pages.</h3>
 
