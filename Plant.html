@@ -62,14 +62,13 @@
     		<h3 class="modaltemp">Sign in</h3>
   		</div>
   		<div class="modal-body">
-  			<a class="btn btn-primary" href="./signinThanks.html">Sign In</a>
+  			<button class="btn btn-primary">Connect with Facebook</button>
 		</div>
 	</div>
     <div class="container" ng-app ng-controller="planter">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
-        <p><a href="#" class="btn btn-success btn-large" ng-click="plant()">Plant</a></p>
-        {{count}} trees planted
+        <p><a href="#" class="btn btn-success btn-large" ng-click="plant()">Plant </a>{{count}} trees planted</p>
     	<div id="trees">
       		<img id="tree-template" src="https://dl.dropbox.com/u/16794299/tree.png"/>
     	</div>
@@ -91,7 +90,7 @@
 		          .removeAttr("id")
 		          .attr("style",style)
 		          .appendTo('#trees');
-		          $sceop.countt++;
+		          $scope.countt++;
 	      }
     	}
       
