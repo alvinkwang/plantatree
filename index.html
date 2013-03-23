@@ -30,15 +30,15 @@
 
 	FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
-				<h2>Connected</h2>
+				console.log('Good to see you, ' + response.name + '.');
 				// connected
 			} else if (response.status === 'not_authorized') {
 				// not_authorized
-				<h2>Not authorized</h2>
+				console.log('Good to see you, ' + response.name + '.');
 				login();
 			} else {
 				// not_logged_in
-				<h2>Not Logged In</h2>
+				console.log('Good to see you, ' + response.name + '.');
 				login();
 			}
 		});
