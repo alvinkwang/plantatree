@@ -26,23 +26,6 @@
 			js.id = id;
 			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=223110031167007";
 			fjs.parentNode.insertBefore(js, fjs);
-		
-
-		FB.getLoginStatus(function(response) {
-			if (response.status === 'connected') {
-				console.log('Good to see you, ' + response.name + '.');
-				// connected
-			} else if (response.status === 'not_authorized') {
-				// not_authorized
-				console.log('Good to see you, ' + response.name + '.');
-				login();
-			} else {
-				// not_logged_in
-				console.log('Good to see you, ' + response.name + '.');
-				login();
-			}
-		});
-
 		}(document, 'script', 'facebook-jssdk'));
 		
 	</script> -->
@@ -85,18 +68,17 @@
 			});
 		}
 
-		(function(d) {
-			var js, id = 'facebook-jssdk', ref = d
-					.getElementsByTagName('script')[0];
-			if (d.getElementById(id)) {
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
 				return;
-			}
-			js = d.createElement('script');
+			js = d.createElement(s);
 			js.id = id;
-			js.async = true;
-			js.src = "//connect.facebook.net/en_US/all.js";
-			ref.parentNode.insertBefore(js, ref);
-		}(document));
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=223110031167007";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		
+		
 	</script>
 
 
@@ -104,8 +86,8 @@
 		<header>
 			<h1>PlantATree</h1>
 
-			<!-- 	<div class="fb-login-button" data-show-faces="false" data-width="200"
-				data-max-rows="1"></div> -->
+				<div class="fb-login-button" data-show-faces="false" data-width="200"
+				data-max-rows="1"></div>
 
 			<p></p>
 
