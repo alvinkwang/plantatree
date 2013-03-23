@@ -28,6 +28,21 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 
+	FB.getLoginStatus(function(response) {
+			if (response.status === 'connected') {
+				<h2>Connected</h2>
+				// connected
+			} else if (response.status === 'not_authorized') {
+				// not_authorized
+				<h2>Not authorized</h2>
+				login();
+			} else {
+				// not_logged_in
+				<h2>Not Logged In</h2>
+				login();
+			}
+		});
+
 	</script>
 
 	<!-- FB Plugin Popup -->
