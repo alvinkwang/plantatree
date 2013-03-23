@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="stylesheets/styles.css">
 <link rel="stylesheet" href="stylesheets/pygment_trac.css">
 <meta name="viewport"
-  content="width=device-width, initial-scale=1, user-scalable=no">
+	content="width=device-width, initial-scale=1, user-scalable=no">
 <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -16,7 +16,7 @@
 <body>
 
 	<!-- FB Login Button -->
-	<div id="fb-root"></div>
+	<!-- <div id="fb-root"></div>
 	<script>
 		(function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
@@ -45,70 +45,67 @@
 
 		}(document, 'script', 'facebook-jssdk'));
 		
-	</script>
+	</script> -->
 
 	<!-- FB Plugin Popup -->
-	<!--<div id="fb-root"></div>
-<script>
-  // Additional JS functions here
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '223110031167007', // App ID
-      channelUrl : '//alvinkwang.github.com/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '223110031167007', // App ID
+				channelUrl : '//alvinkwang.github.com/channel.html', // Channel File
+				status : true, // check login status
+				cookie : true, // enable cookies to allow the server to access the session
+				xfbml : true
+			});
 
-    // Additional init code here
-    FB.getLoginStatus(function(response) {
-      if (response.status === 'connected') {
-        // connected
-          } else if (response.status === 'not_authorized') {
-        // not_authorized
-        login();
-      } else {
-        // not_logged_in
-        login();
-      }
-     });
-  };
-  
-  function login() {
-    FB.login(function(response) {
-        if (response.authResponse) {
-            // connected
-            testAPI();
-        } else {
-            // cancelled
-        }
-    });
-  }
+			FB.getLoginStatus(function(response) {
+				if (response.status === 'connected') {
+				} else if (response.status === 'not_authorized') {
+					login();
+				} else {
+					login();
+				}
+			});
+		};
 
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-        console.log('Good to see you, ' + response.name + '.');
-    });
-  }
+		function login() {
+			FB.login(function(response) {
+				if (response.authResponse) {
+					testAPI();
+				} else {
+				}
+			});
+		}
 
-  // Load the SDK Asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     ref.parentNode.insertBefore(js, ref);
-   }(document));
-</script>-->
+		function testAPI() {
+			console.log('Welcome!  Fetching your information.... ');
+			FB.api('/me', function(response) {
+				console.log('Good to see you, ' + response.name + '.');
+			});
+		}
+
+		(function(d) {
+			var js, id = 'facebook-jssdk', ref = d
+					.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement('script');
+			js.id = id;
+			js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	</script>
 
 
 	<div class="wrapper">
 		<header>
 			<h1>PlantATree</h1>
 
-			<div class="fb-login-button" data-show-faces="false" data-width="200"
-				data-max-rows="1"></div>
+			<!-- 	<div class="fb-login-button" data-show-faces="false" data-width="200"
+				data-max-rows="1"></div> -->
 
 			<p></p>
 
