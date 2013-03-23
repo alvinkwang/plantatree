@@ -13,7 +13,19 @@
     <![endif]-->
   </head>
   <body>
+  
+  <!-- FB Login Button -->
   <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=APP_ID";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  
+  <!-- FB Plugin Popup -->
+  <!--<div id="fb-root"></div>
 <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
@@ -65,7 +77,11 @@
      js.src = "//connect.facebook.net/en_US/all.js";
      ref.parentNode.insertBefore(js, ref);
    }(document));
-</script>
+</script>-->
+
+
+<div class="fb-login-button" data-show-faces="false" data-width="200" data-max-rows="1"></div>
+
     <div class="wrapper">
       <header>
         <h1>PlantATree</h1>
