@@ -34,13 +34,6 @@
 	<div id="fb-root"></div>
 	<script>
 		window.fbAsyncInit = function() {
-			FB.init({
-				appId : '223110031167007', // App ID
-				channelUrl : '//alvinkwang.github.com/channel.html', // Channel File
-				status : true, // check login status
-				cookie : true, // enable cookies to allow the server to access the session
-				xfbml : true
-			});
 
 			FB.getLoginStatus(function(response) {
 				if (response.status === 'connected') {
