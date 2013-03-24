@@ -33,6 +33,27 @@
 	<!-- FB Plugin Popup -->
 	<div id="fb-root"></div>
 	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '223110031167007', // App ID
+				channelUrl : '//alvinkwang.github.com/channel.html', // Channel File
+				status : true, // check login status
+				cookie : true, // enable cookies to allow the server to access the session
+				xfbml : true
+			});
+
+			FB.getLoginStatus(function(response) {
+				if (response.status === 'connected') {
+					console.log('Connected');
+				} else if (response.status === 'not_authorized') {
+					console.log('Not Authorized');
+					login();
+				} else {
+					console.log('Not Connected');
+					login();
+				}
+			});
+		};
 
 		function login() {
 			FB.login(function(response) {
@@ -50,15 +71,19 @@
 			});
 		}
 
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id))
+		(function(d) {
+			var js, id = 'facebook-jssdk', ref = d
+					.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) {
 				return;
-			js = d.createElement(s);
+			}
+			js = d.createElement('script');
 			js.id = id;
-			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=223110031167007";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
+			js.async = true;
+			js.src = "//connect.facebook.net/en_US/all.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+		
 		
 	</script>
 
@@ -67,8 +92,8 @@
 		<header>
 			<h1>PlantATree</h1>
 
-			 	<div class="fb-login-button" data-show-faces="false" data-width="200"
-				data-max-rows="1"></div>
+			<!-- 	<div class="fb-login-button" data-show-faces="false" data-width="200"
+				data-max-rows="1"></div> -->
 
 			<p></p>
 
