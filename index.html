@@ -67,14 +67,14 @@
 		
 		function showAccountInfo() {
 			FB.api('/me', function(response) {
-				console.log('Welcome back, ' + response.name + '.');
+				console.log('Welcome back, ' + response.name + '.' + response.email + '.');
 			});
         }
 
 		function testAPI() {
 			console.log('Welcome!  Fetching your information.... ');
 			FB.api('/me', function(response) {
-				console.log('Good to see you, ' + response.name + '.' + response.email + '.');
+				console.log('Good to see you, ' + response.name + '.');
 			});
 		}
 
