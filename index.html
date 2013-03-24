@@ -109,72 +109,6 @@
                 showLoader(false);
             }
 
-            //stream publish method
-            function streamPublish(name, description, hrefTitle, hrefLink, userPrompt){
-                showLoader(true);
-                FB.ui(
-                {
-                    method: 'stream.publish',
-                    message: '',
-                    attachment: {
-                        name: name,
-                        caption: '',
-                        description: (description),
-                        href: hrefLink
-                    },
-                    action_links: [
-                        { text: hrefTitle, href: hrefLink }
-                    ],
-                    user_prompt_message: userPrompt
-                },
-                function(response) {
-                    showLoader(false);
-                });
-
-            }
-            function showStream(){
-                FB.api('/me', function(response) {
-                    //console.log(response.id);
-                    streamPublish(response.name, 'I like the articles of Thinkdiff.net', 'hrefTitle', 'http://thinkdiff.net', "Share thinkdiff.net");
-                });
-            }
-
-            function share(){
-                showLoader(true);
-                var share = {
-                    method: 'stream.share',
-                    u: 'http://thinkdiff.net/'
-                };
-
-                FB.ui(share, function(response) { 
-                    showLoader(false);
-                    console.log(response); 
-                });
-            }
-
-            function graphStreamPublish(){
-                showLoader(true);
-                
-                FB.api('/me/feed', 'post', 
-                    { 
-                        message     : "I love thinkdiff.net for facebook app development tutorials",
-                        link        : 'http://ithinkdiff.net',
-                        picture     : 'http://thinkdiff.net/iphone/lucky7_ios.jpg',
-                        name        : 'iOS Apps & Games',
-                        description : 'Checkout iOS apps and games from iThinkdiff.net. I found some of them are just awesome!'
-                        
-                }, 
-                function(response) {
-                    showLoader(false);
-                    
-                    if (!response || response.error) {
-                        alert('Error occured');
-                    } else {
-                        alert('Post ID: ' + response.id);
-                    }
-                });
-            }
-
             function fqlQuery(){
                 showLoader(true);
                 
@@ -224,7 +158,6 @@
             
         </script>
         
-        <h3>New JavaScript SDK & OAuth 2.0 based FBConnect Tutorial | Thinkdiff.net</h3>
         <button id="fb-auth">Login</button>
         <div id="loader" style="display:none">
             <img src="ajax-loader.gif" alt="loading" />
