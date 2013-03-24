@@ -66,22 +66,9 @@
 		}
 		
 		function showAccountInfo() {
-            FB.api(
-            {
-                method: 'fql.query',
-                query: 'SELECT uid,name, pic FROM user WHERE uid='+FB.getSession().uid
-            },
-                function(response) {
-                    var imageLink = '<a id="userImage" target="_blank" href="http://www.facebook.com/profile.php?id=' + response[0].uid + '">' + 
-                                    '<imgid="userPic" src="' + response[0].pic + '"/></a>';
-                    var userLink = '<a target="_blank" href="http://www.facebook.com/profile.php?id=' + response[0].uid + '">' + response[0].name + '</a>';
-                    document.getElementById('account-info').innerHTML = (
-                        imageLink + '<div id="userInfo"><span id="userName">' +
-                        userLink + '</span>' + ' <img onclick="logout()" style="cursor:pointer;float:right;padding:0pt 25px 0pt  0pt;"' + 
-                        'src="https://s-static.ak.fbcdn.net/rsrc.php/z2Y31/hash/cxrz4k7j.gif"/></div>'
-                    );
-                }
-            );
+			FB.api('/me', function(response) {
+				console.log('Welcome back, ' + response.name + '.');
+			});
         }
 
 		function testAPI() {
