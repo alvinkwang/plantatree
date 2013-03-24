@@ -46,7 +46,7 @@
                                 if (response.authResponse) {
                                     FB.api('/me', function(info) {
                                         login(response, info);
-                                    });	   
+                                    });       
                                 } else {
                                     //user cancelled login or did not grant authorization
                                     showLoader(false);
@@ -204,6 +204,9 @@
 
         <h3>New JavaScript SDK & OAuth 2.0 based FBConnect Tutorial | Thinkdiff.net</h3>
         <button id="fb-auth">Login</button>
+        <div id="loader" style="display:none">
+            <img src="ajax-loader.gif" alt="loading" />
+        </div>
         <br />
         <div id="user-info"></div>
         <br />
