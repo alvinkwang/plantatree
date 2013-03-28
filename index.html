@@ -82,12 +82,17 @@
         <br />
         <div id="user-info"></div>
         <br />
+        
+        <li><a id="name"></a></li>
+	<li id="signIn"><a>Sign in</a></li>
 
 	<script>
 	if (isLoggedIn) {
-		<h3> Logged In!</h3>
+		$("#name").show();
+		$("#signIn").hide();
 	} else {
-		<h3> NOT logged in</h3>
+		$("#name").hide();
+		$("#signIn").show();
 	}
 	</script>
 	
