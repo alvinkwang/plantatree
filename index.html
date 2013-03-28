@@ -69,11 +69,9 @@
             
             function login(response, info){
                 if (response.authResponse) {
-                    var accessToken                                 =   response.authResponse.accessToken;
-                    
-                    userInfo.innerHTML                             = '<img src="https://graph.facebook.com/' + info.id + '/picture">' + info.name
+                    var accessToken = response.authResponse.accessToken;
+                    userInfo.innerHTML = '<img src="https://graph.facebook.com/' + info.id + '/picture">' + info.name
                                                                      + "<br /> Your Access Token: " + accessToken;
-                    button.innerHTML                               = 'Logout';
                 }
             }
         
