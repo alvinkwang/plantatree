@@ -18,6 +18,9 @@
 	<!-- FB Login Button -->
 	<div id="fb-root"></div>
         <script type="text/javascript">
+            var isLoggedIn = false;
+            var userName;
+            var userEmail;
             var button;
             var userInfo;
             
@@ -80,5 +83,13 @@
         <div id="user-info"></div>
         <br />
 
+	<script>
+	if (isLoggedIn) {
+		<h3> Logged In!</h3>
+	} else {
+		<h3> NOT logged in</h3>
+	}
+	</script>
+	
 </body>
 </html>
