@@ -84,10 +84,11 @@
         <div id="user-info"></div>
         <br />
         
-        <div><a id="name"></a></div>
-	<div><a id="signIn">Sign in</a></div>
+        <div id="name"></div>
+	<div id="signIn">Sign in</div>
 
 	<script>
+	console.log("isLoggedIn: " + isLoggedIn);
 	if (isLoggedIn) {
 		$("#name").show();
 		$("#signIn").hide();
