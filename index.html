@@ -18,10 +18,10 @@
 	<!-- FB Login Button -->
 	<div id="fb-root"></div>
         <script type="text/javascript">
-            var isLoggedIn;
+            var button;
             var userName;
             var userEmail;
-            var button;
+            var userPic;
             var userInfo;
             
             window.fbAsyncInit = function() {
@@ -33,12 +33,14 @@
 
                function updateButton(response) {
                     button       =   document.getElementById('fb-auth');
+                    userName = document.getElementById('user-name');
+                    userEmail = document.getElementById('user-email');
+                    userPic = document.getElementById('user-picture');
                     userInfo     =   document.getElementById('user-info');
                     
                     if (response.authResponse) {
                         //user is already logged in and connected
                         FB.api('/me', function(info) {
-                        	console.log("break1");
                             login(response, info);
                         });
                         
@@ -49,7 +51,6 @@
                             FB.login(function(response) {
                                 if (response.authResponse) {
                                     FB.api('/me', function(info) {
-                                    	console.log("break2");
                                         login(response, info);
                                     });	   
                                 } else {
@@ -73,10 +74,11 @@
             
             
             function login(response, info){
-            	console.log("break3");
                 if (response.authResponse) {
-                	console.log("break4");
                     isLoggedIn = true;
+                    userName.innerHTML = info.name;
+                    userEmail.innerHTML = info.email;
+                    userPic.innerHTML = '<img src="https://graph.facebook.com/' + info.id + '/picture">';
                     userInfo.innerHTML = '<img src="https://graph.facebook.com/' + info.id + '/picture">' + info.name + " " + info.email;
                 }
             }
@@ -87,22 +89,12 @@
         <br />
         <div id="user-info"></div>
         <br />
-        
-        <div id="name"></div>
-	<div id="signIn">Sign in</div>
+        <h2>Alvin Attempt</h2>
+        <div id="user-name"></div>
+	<div id="user-email"></div>
+	<div id="user-picture"></div>
 	
 	<script src="./jquery.js"></script>
-
-	<script>
-	console.log("isLoggedIn: " + isLoggedIn);
-	if (isLoggedIn) {
-		$("#name").show();
-		$("#signIn").hide();
-	} else {
-		$("#name").hide();
-		$("#signIn").show();
-	}
-	</script>
 	
 </body>
 </html>
