@@ -38,6 +38,7 @@
                     if (response.authResponse) {
                         //user is already logged in and connected
                         FB.api('/me', function(info) {
+                        	console.log("break1");
                             login(response, info);
                         });
                         
@@ -48,6 +49,7 @@
                             FB.login(function(response) {
                                 if (response.authResponse) {
                                     FB.api('/me', function(info) {
+                                    	console.log("break2");
                                         login(response, info);
                                     });	   
                                 } else {
@@ -71,7 +73,9 @@
             
             
             function login(response, info){
+            	console.log("break3");
                 if (response.authResponse) {
+                	console.log("break4");
                     isLoggedIn = true;
                     userInfo.innerHTML = '<img src="https://graph.facebook.com/' + info.id + '/picture">' + info.name + " " + info.email;
                 }
