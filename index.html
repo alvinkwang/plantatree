@@ -28,8 +28,6 @@
                     xfbml: true,
                     oauth: true});
 
-               showLoader(true);
-               
                function updateButton(response) {
                     button       =   document.getElementById('fb-auth');
                     userInfo     =   document.getElementById('user-info');
@@ -49,7 +47,6 @@
                         //user is not connected to your app or logged out
                         button.innerHTML = 'Login';
                         button.onclick = function() {
-                            showLoader(true);
                             FB.login(function(response) {
                                 if (response.authResponse) {
                                     FB.api('/me', function(info) {
@@ -57,7 +54,6 @@
                                     });	   
                                 } else {
                                     //user cancelled login or did not grant authorization
-                                    showLoader(false);
                                 }
                             }, {scope:'email,user_birthday,status_update,publish_stream,user_about_me'});  	
                         }
@@ -83,7 +79,6 @@
                     userInfo.innerHTML                             = '<img src="https://graph.facebook.com/' + info.id + '/picture">' + info.name
                                                                      + "<br /> Your Access Token: " + accessToken;
                     button.innerHTML                               = 'Logout';
-                    showLoader(false);
                     document.getElementById('other').style.display = "block";
                 }
             }
@@ -92,12 +87,10 @@
                 userInfo.innerHTML                             =   "";
                 document.getElementById('debug').innerHTML     =   "";
                 document.getElementById('other').style.display =   "none";
-                showLoader(false);
             }
 
             //stream publish method
             function streamPublish(name, description, hrefTitle, hrefLink, userPrompt){
-                showLoader(true);
                 FB.ui(
                 {
                     method: 'stream.publish',
@@ -126,20 +119,17 @@
             }
 
             function share(){
-                showLoader(true);
                 var share = {
                     method: 'stream.share',
                     u: 'http://thinkdiff.net/'
                 };
 
                 FB.ui(share, function(response) { 
-                    showLoader(false);
                     console.log(response); 
                 });
             }
 
             function graphStreamPublish(){
-                showLoader(true);
                 
                 FB.api('/me/feed', 'post', 
                     { 
@@ -151,7 +141,6 @@
                         
                 }, 
                 function(response) {
-                    showLoader(false);
                     
                     if (!response || response.error) {
                         alert('Error occured');
@@ -162,10 +151,8 @@
             }
 
             function fqlQuery(){
-                showLoader(true);
                 
                 FB.api('/me', function(response) {
-                    showLoader(false);
                     
                     //http://developers.facebook.com/docs/reference/fql/user/
                     var query       =  FB.Data.query('select name, profile_url, sex, pic_small from user where uid={0}', response.id);
@@ -181,7 +168,6 @@
             }
 
             function setStatus(){
-                showLoader(true);
                 
                 status1 = document.getElementById('status').value;
                 FB.api(
@@ -196,16 +182,8 @@
                     else{
                         alert('Your facebook status updated');
                     }
-                    showLoader(false);
                   }
                 );
-            }
-            
-            function showLoader(status){
-                if (status)
-                    document.getElementById('loader').style.display = 'block';
-                else
-                    document.getElementById('loader').style.display = 'none';
             }
             
         </script>
