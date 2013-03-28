@@ -72,6 +72,7 @@
             
             function login(response, info){
                 if (response.authResponse) {
+                    isLoggedIn = true;
                     userInfo.innerHTML = '<img src="https://graph.facebook.com/' + info.id + '/picture">' + info.name + " " + info.email;
                 }
             }
